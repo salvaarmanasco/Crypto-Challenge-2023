@@ -1,30 +1,25 @@
 import React from 'react';
-import {Button, Pressable, StyleSheet, Text, View} from 'react-native';
-import styled from 'styled-components/native';
+import Home from './src/screens/home/Home';
+import {ThemeProvider} from 'styled-components/native';
+import THEME from './src/styles/theme';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-const Layout = styled.Text`
-  color: white;
-`;
-
-const Container = styled(View)`
-  background-color: #385775;
-  width: 100%;
-  border: white;
-  height: 100px;
-  color: white;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-`;
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <>
-      <Container>
-        <Layout>Hola</Layout>
-      </Container>
-      <Text>Hola mundo</Text>
-    </>
+    <ThemeProvider theme={THEME}>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="home"
+          screenOptions={{
+            headerShown: false,
+          }}>
+          <Stack.Screen name="home" component={Home} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ThemeProvider>
   );
 };
 
