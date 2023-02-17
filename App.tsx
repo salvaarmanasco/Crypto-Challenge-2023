@@ -12,11 +12,11 @@ const App = () => {
     <ThemeProvider theme={THEME}>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Home"
+          initialRouteName="home"
           screenOptions={{
             headerShown: false,
           }}>
-          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="home" component={Home} />
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>
